@@ -26,6 +26,7 @@ class TempereatureReader(MycroftSkill):
             diff = now - latest['time']
             if diff > (15*60*1000):
                 print("No temperature data in over 15 minutes.")
+                self.speak_dialog('reader.nodata')
             else:
                 output = {}
                 output['latest_temp'] = self.stringify_temperature(latest['temp'])
