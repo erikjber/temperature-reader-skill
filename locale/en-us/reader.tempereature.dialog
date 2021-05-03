@@ -1,0 +1,1 @@
+It's {{latest_temp}} degrees outside. In the last 24 hours the minimum was {{min_temp}}, and the maximum {{max_temp}} degrees.
