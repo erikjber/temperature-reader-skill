@@ -21,6 +21,9 @@ class TempereatureReader(MycroftSkill):
         with urllib.request.urlopen(url) as conn:
             data = json.loads(conn.read().decode())
             # get the latest temperature
+            if not data['temperatures']:
+                self.speak_dialog('reader.nodata_atall')
+                return 
             latest = data['temperatures'][0]
             # check they're no older than 15 minutes
             diff = now - latest['time']
