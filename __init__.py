@@ -16,10 +16,9 @@ class TempereatureReader(MycroftSkill):
     def handle_reader_tempereature(self, message):
         print("Getting temperature")
         now = round(time.time()*1000)
-        fromts = now-24*60*60*1000
-        url = "http://walle:9719/data?channel=1&from=" + str(fromts)
-        with urllib.request.urlopen(url) as conn:
-            data = json.loads(conn.read().decode())
+        file_name = "/home/pi/latestweather.json"
+        with open(file_name,"r") as file:
+            data = json.loads(file.read())
             # get the latest temperature
             if not data['temperatures']:
                 self.speak_dialog('reader.nodata_atall')
