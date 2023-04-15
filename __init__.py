@@ -7,7 +7,7 @@ class TempereatureReader(MycroftSkill):
         MycroftSkill.__init__(self)
 
     def stringify_temperature(self,temperature):
-        res = str(temperature)
+        res = "{:.1f}".format(temperature)
         # Remove trailing zeroes
         res = res.replace(".0","")
         return res
@@ -46,6 +46,25 @@ class TempereatureReader(MycroftSkill):
                 output['max_temp'] = self.stringify_temperature(max)
                 #print("In the last 24 hours the minimum was " + str(min) + " and the maximum " + str(max) +" degrees.")
                 self.speak_dialog('reader.tempereature',output)
+
+    @intent_file_handler('reader.mean.intent')
+    def handle_mean_tempereature(self, message):
+        print("Getting temperature")
+        now = round(time.time()*1000)
+        file_name = "/home/pi/latest_dygn_weather.json"
+        with open(file_name,"r") as file:
+            data = json.loads(file.read())
+            # get the latest temperature
+            if not data['temperatures']:
+                self.speak_dialog('reader.nodata_atall')
+            else:
+                output = {}
+                sum = 0
+                for d in data['temperatures']:
+                    sum += d['temp']
+                mean_temp = sum/len(data['temperatures'])
+                output['mean_temp'] = self.stringify_temperature(mean_temp)
+                self.speak_dialog('reader.mean',output)
 
 def create_skill():
     return TempereatureReader()
