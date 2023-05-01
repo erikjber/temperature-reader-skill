@@ -1,4 +1,4 @@
-# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/thermometer-half.svg" card_color="#22A7F0" width="50" height="50" style="vertical-align:bottom"/> Tempereature Reader
+# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/thermometer-half.svg" card_color="#22A7F0" width="50" height="50" style="vertical-align:bottom"/> Temperature Reader
 Tell the temperature
 
 ## About
