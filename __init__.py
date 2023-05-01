@@ -1,10 +1,12 @@
 from mycroft import MycroftSkill, intent_file_handler
 import urllib.request, json, time
+from pathlib import Path
 
 class TempereatureReader(MycroftSkill):
     def __init__(self):
         print("TemperatureReader init")
         MycroftSkill.__init__(self)
+        self.homedir = str(Path.home())
 
     def stringify_temperature(self,temperature):
         res = "{:.1f}".format(temperature)
@@ -16,7 +18,7 @@ class TempereatureReader(MycroftSkill):
     def handle_reader_tempereature(self, message):
         print("Getting temperature")
         now = round(time.time()*1000)
-        file_name = "/home/pi/latestweather.json"
+        file_name = self.homedir+"/latestweather.json"
         with open(file_name,"r") as file:
             data = json.loads(file.read())
             # get the latest temperature
@@ -51,7 +53,7 @@ class TempereatureReader(MycroftSkill):
     def handle_mean_tempereature(self, message):
         print("Getting temperature")
         now = round(time.time()*1000)
-        file_name = "/home/pi/latest_dygn_weather.json"
+        file_name = self.homedir+"/latest_dygn_weather.json"
         with open(file_name,"r") as file:
             data = json.loads(file.read())
             # get the latest temperature
