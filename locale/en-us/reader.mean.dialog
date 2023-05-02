@@ -1,0 +1,4 @@
+Yesterday the mean temperature was {{mean_temp}} degrees.
+Yesterday's mean temperature was {{mean_temp}} degrees.
+The average temperature yesterday was {{mean_temp}} degrees.
+
