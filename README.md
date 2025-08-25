@@ -1,8 +1,9 @@
 # <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/thermometer-half.svg" card_color="#22A7F0" width="50" height="50" style="vertical-align:bottom"/> Temperature Reader
-Tell the temperature
+A skill for Mycroft. Tell the temperature
 
 ## About
 Tell the temperature outside the building in degrees celsius, including latest 24 hour highs and lows.
+Since Mycroft has been discontinued this skill is probably not very useful. It might or might not work with OpenVoiceOS, but that has not been tested and will not be supported.
 
 ## Examples
 * "How warm is it outside"
